@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Leaderboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <main class="page">
+    <div class="container">
+      <header class="header">
+        <h1>Leaderboard</h1>
+        <p class="subtitle">Top performers based on contributions and activity</p>
+      </header>
+
+      <section class="filters" aria-label="Leaderboard filters">
+        <label class="sr-only" for="yearFilter">Filter by year</label>
+        <select id="yearFilter" aria-label="Filter by year">
+          <option value="all">All Years</option>
+          <option value="2025">2025</option>
+        </select>
+
+        <label class="sr-only" for="quarterFilter">Filter by quarter</label>
+        <select id="quarterFilter" aria-label="Filter by quarter">
+          <option value="all">All Quarters</option>
+          <option value="Q1">Q1</option>
+          <option value="Q2">Q2</option>
+          <option value="Q3">Q3</option>
+          <option value="Q4">Q4</option>
+        </select>
+
+        <label class="sr-only" for="categoryFilter">Filter by category</label>
+        <select id="categoryFilter" aria-label="Filter by category">
+          <option value="all">All Categories</option>
+          <option value="Education">Education</option>
+          <option value="Public Speaking">Public Speaking</option>
+          <option value="University Partners">University Partners</option>
+        </select>
+
+        <div class="search-wrap">
+          <span class="search-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img" focusable="false">
+              <path d="M10.5 3.75a6.75 6.75 0 1 0 4.2 12.03l4.76 4.77a1 1 0 0 0 1.42-1.42l-4.77-4.76A6.75 6.75 0 0 0 10.5 3.75Zm0 2a4.75 4.75 0 1 1 0 9.5 4.75 4.75 0 0 1 0-9.5Z"/>
+            </svg>
+          </span>
+          <label class="sr-only" for="search">Search employee</label>
+          <input type="text" id="search" aria-label="Search employee" placeholder="Search employee...">
+        </div>
+      </section>
+
+      <section class="podium-block" aria-label="Top performers">
+        <div id="top3" class="top3"></div>
+      </section>
+
+      <section class="list-block" aria-label="Leaderboard list">
+        <div id="list" class="list"></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
