@@ -107,7 +107,7 @@ Stored fields:
 
 Replace this section with your bot link:
 
-https://t.me/YOUR_BOT_NAME
+https://t.me/dasha_ai_challenge_bot
 
 ## Repository Structure
 
