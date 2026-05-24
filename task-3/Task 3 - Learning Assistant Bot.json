@@ -1,0 +1,1348 @@
+{
+  "name": "Task 3 - Learning Assistant Bot",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        0,
+        0
+      ],
+      "id": "d3f5155e-609e-4b5c-8635-4c64e08130c7",
+      "name": "Telegram Trigger",
+      "webhookId": "b93e7b7c-16c7-4cc9-be6a-003033c9a923",
+      "credentials": {
+        "telegramApi": {
+          "id": "GgD4CGZjmNoLmEAX",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Telegram Trigger').item.json.message.text }}",
+                    "rightValue": "/start",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "909d0fca-24b1-42c4-9db2-9cce5094e611"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "f91b183c-2853-4169-b1e6-cdb4fbe9072c",
+                    "leftValue": "={{ $('Telegram Trigger').item.json.message.text }}",
+                    "rightValue": "/learn",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "9d208e43-9822-4222-a365-990a7e0ee3ec",
+                    "leftValue": "={{ $('Telegram Trigger').item.json.message.text }}",
+                    "rightValue": "/quiz",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "24ccb0f7-0237-48bd-a6ae-ceb328e2ff79",
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "/quiz1",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "c495f9e7-e5b3-4b8e-a704-5e8dbd23e9a6",
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "/quiz2",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "450aaa70-54bb-4914-a66b-7dcd91ec81bb",
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "/quiz3",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "e4f8cb72-0a8b-44d9-ab22-3be12efb6213",
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "/quiz4",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "3352f46c-6a0f-4d32-9556-1e7b7b923fd5",
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "/quiz5",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        160,
+        0
+      ],
+      "id": "3cdb688b-9a99-410d-b494-1345a8b75d41",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.message.chat.id }}",
+        "text": "Welcome to Learning Assistant Bot!  Available commands:  /learn [url] - analyze learning material and generate a summary  /quiz - start a quiz based on saved materials",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        272,
+        -896
+      ],
+      "id": "b6b30d02-7cdf-4e97-935c-e652bc3601ff",
+      "name": "Send a text message",
+      "webhookId": "55e03801-9dd3-4d77-89b7-9f21ce9a27dd",
+      "credentials": {
+        "telegramApi": {
+          "id": "GgD4CGZjmNoLmEAX",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.message.text.split(' ')[1] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        352,
+        -576
+      ],
+      "id": "9f733f91-4566-4b4e-bd2c-59117d4a3997",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.content }}",
+        "options": {
+          "systemMessage": "You are a Teacher AI.\n\nAnalyze the learning material from this URL:\n{{ $json.url }}\n\nContent:\n{{ $json.content }}\n\nReturn ONLY plain text in this exact format:\n\nTitle:\n[short title]\n\nDifficulty:\n[Beginner / Intermediate / Advanced]\n\nKey Concepts:\n1. [concept]\n2. [concept]\n3. [concept]\n4. [concept]\n5. [concept]\n\nSummary:\n1. [key point]\n2. [key point]\n3. [key point]\n4. [key point]\n5. [key point]\n6. [key point]\n7. [key point]\n\nRules:\n- Use only the provided content.\n- Do not use Markdown.\n- Do not use HTML.\n- Do not use asterisks, hashtags, underscores, angle brackets, or backticks."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        784,
+        -576
+      ],
+      "id": "2e2111c4-dae9-4d60-9ed2-54cf5c001a6f",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $('AI Agent').item.json.output\n  .replaceAll('*', '')\n  .replaceAll('#', '')\n  .replaceAll('_', '')\n  .replaceAll('<', '')\n  .replaceAll('>', '')\n}}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1360,
+        -576
+      ],
+      "id": "4ac0808b-09bb-4aa2-806c-4aca7dbb7d70",
+      "name": "Send a text message1",
+      "webhookId": "0238edc2-51ce-4d47-8152-2a797a6e5187",
+      "credentials": {
+        "telegramApi": {
+          "id": "GgD4CGZjmNoLmEAX",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "dataTableId": {
+          "__rl": true,
+          "value": "wd7rTcul7Yue0Uga",
+          "mode": "list",
+          "cachedResultName": "learning_materials",
+          "cachedResultUrl": "/projects/A42IhJXoSlU2b5NM/datatables/wd7rTcul7Yue0Uga"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "userId": "={{ $('Telegram Trigger').item.json.message.from.id }}",
+            "url": "={{ $('Code in JavaScript5').item.json.url }}",
+            "summary": "={{ $('AI Agent').item.json.output }}",
+            "content": "={{ $('Code in JavaScript5').item.json.content }}",
+            "createdAtCustom": "={{ $now }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "userId",
+              "displayName": "userId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "url",
+              "displayName": "url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "summary",
+              "displayName": "summary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "content",
+              "displayName": "content",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "createdAtCustom",
+              "displayName": "createdAtCustom",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        1136,
+        -576
+      ],
+      "id": "20e90a66-9e1f-480d-9e52-cd19ba7db463",
+      "name": "Insert row"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "wd7rTcul7Yue0Uga",
+          "mode": "list",
+          "cachedResultName": "learning_materials",
+          "cachedResultUrl": "/projects/A42IhJXoSlU2b5NM/datatables/wd7rTcul7Yue0Uga"
+        },
+        "matchType": "allConditions",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "userId",
+              "keyValue": "={{ $('Telegram Trigger').item.json.message.from.id }}"
+            }
+          ]
+        },
+        "limit": 5,
+        "orderBy": true,
+        "orderByColumn": "createdAtCustom"
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        368,
+        -304
+      ],
+      "id": "80283472-eae0-41ba-983d-0ab21fd902e4",
+      "name": "Get row(s)"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.message }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        832,
+        -304
+      ],
+      "id": "41028bc3-6f0f-456a-9e51-3c80ef5dfbb1",
+      "name": "Send a text message2",
+      "webhookId": "c956b5e2-9c43-4c1b-bb95-ed84bcb73203",
+      "credentials": {
+        "telegramApi": {
+          "id": "GgD4CGZjmNoLmEAX",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const rows = $input.all();\n\nif (!rows.length) {\n  return [{\n    json: {\n      message: 'No saved materials found. Send /learn <url> first.'\n    }\n  }];\n}\n\nconst lines = rows.map((item, index) => {\n  const summary = item.json.summary || '';\n  const url = item.json.url || '';\n\n  const titleMatch = summary.match(/Title:\\s*(.+)/i);\n  const title = titleMatch ? titleMatch[1].trim() : url;\n\n  return `${index + 1}. ${title}`;\n});\n\nreturn [{\n  json: {\n    message: `Choose a material for quiz:\n\n${lines.join('\\n')}\n\nReply with:\n/quiz1 - material 1\n/quiz2 - material 2\n/quiz3 - material 3\n/quiz4 - material 4\n/quiz5 - material 5`\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        576,
+        -304
+      ],
+      "id": "e4e9a9ab-4817-404b-980d-f413bc66b6cf",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "wd7rTcul7Yue0Uga",
+          "mode": "list",
+          "cachedResultName": "learning_materials",
+          "cachedResultUrl": "/projects/A42IhJXoSlU2b5NM/datatables/wd7rTcul7Yue0Uga"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "userId",
+              "keyValue": "={{ $('Telegram Trigger').item.json.message.from.id }}"
+            }
+          ]
+        },
+        "limit": 1,
+        "orderBy": true,
+        "orderByColumn": "createdAtCustom"
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        368,
+        -112
+      ],
+      "id": "c22ddc6a-e7bc-45c3-8e89-08b97ff7f3ee",
+      "name": "Get row(s)1"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are an Examiner AI.\n\nGenerate exactly 5 multiple choice quiz questions based on this learning material.\n\nFor each question include:\nQuestion:\nA)\nB)\nC)\nD)\nCorrect answer:\nExplanation:\n\nRules:\n- Use only this selected material.\n- Return plain text only.\n- Do not use Markdown.\n- Do not use HTML.\n- Do not use asterisks, hashtags, underscores, angle brackets, or backticks.\n\nLearning material:\n{{ $json.summary }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        528,
+        -112
+      ],
+      "id": "bd152b2a-7f80-4b10-bf0c-261d7ea29a7c",
+      "name": "AI Agent2"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        528,
+        64
+      ],
+      "id": "bef3942a-2fb1-4f07-8c08-a76a4f47e668",
+      "name": "Google Gemini Chat Model2",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "7LDd7OaL0TQf4DWT",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        864,
+        -112
+      ],
+      "id": "3f0b46ad-3308-402a-97b9-1f190f83a79f",
+      "name": "Send a text message3",
+      "webhookId": "d6d2694f-237c-463d-9f7a-0dd120a8c6fb",
+      "credentials": {
+        "telegramApi": {
+          "id": "GgD4CGZjmNoLmEAX",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "wd7rTcul7Yue0Uga",
+          "mode": "list",
+          "cachedResultName": "learning_materials",
+          "cachedResultUrl": "/projects/A42IhJXoSlU2b5NM/datatables/wd7rTcul7Yue0Uga"
+        },
+        "matchType": "allConditions",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "userId",
+              "keyValue": "={{ $('Telegram Trigger').item.json.message.from.id }}"
+            }
+          ]
+        },
+        "limit": 5,
+        "orderBy": true,
+        "orderByColumn": "createdAtCustom"
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        512,
+        240
+      ],
+      "id": "1b580b0b-cb6a-4db8-91f0-115f39877b60",
+      "name": "Get row(s)2"
+    },
+    {
+      "parameters": {
+        "jsCode": "const rows = $input.all();\nconst selected = rows[1];\n\nif (!selected) {\n  return [{\n    json: {\n      summary: 'Selected material was not found. Send /quiz again and choose an available number.'\n    }\n  }];\n}\n\nreturn [{\n  json: {\n    summary: selected.json.summary\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        720,
+        240
+      ],
+      "id": "5b89a606-44cf-40af-8b9a-18489950ffae",
+      "name": "Code in JavaScript1"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are an Examiner AI.\n\nGenerate exactly 5 multiple choice quiz questions based on this learning material.\n\nFor each question include:\nQuestion:\nA)\nB)\nC)\nD)\nCorrect answer:\nExplanation:\n\nRules:\n- Use only this selected material.\n- Return plain text only.\n- Do not use Markdown.\n- Do not use HTML.\n- Do not use asterisks, hashtags, underscores, angle brackets, or backticks.\n\nLearning material:\n{{ $json.summary }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        928,
+        240
+      ],
+      "id": "fbd724f2-3196-4cb1-a043-a0800cf03fda",
+      "name": "AI Agent3"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        928,
+        416
+      ],
+      "id": "3473839e-5f49-47d7-bbf6-3750e7b02834",
+      "name": "Google Gemini Chat Model3",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "7LDd7OaL0TQf4DWT",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1360,
+        240
+      ],
+      "id": "22b48120-75a5-4d7a-8d5d-853233cdafe9",
+      "name": "Send a text message4",
+      "webhookId": "3ac53393-4f70-4fb2-a845-a030301ed605",
+      "credentials": {
+        "telegramApi": {
+          "id": "GgD4CGZjmNoLmEAX",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "wd7rTcul7Yue0Uga",
+          "mode": "list",
+          "cachedResultName": "learning_materials",
+          "cachedResultUrl": "/projects/A42IhJXoSlU2b5NM/datatables/wd7rTcul7Yue0Uga"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "userId",
+              "keyValue": "={{ $('Telegram Trigger').item.json.message.from.id }}"
+            }
+          ]
+        },
+        "limit": 5,
+        "orderBy": true,
+        "orderByColumn": "createdAtCustom"
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        512,
+        544
+      ],
+      "id": "b2deba92-a768-456d-9471-786d98e3654f",
+      "name": "Get row(s)3"
+    },
+    {
+      "parameters": {
+        "jsCode": "const rows = $input.all();\nconst selected = rows[2];\n\nif (!selected) {\n  return [{\n    json: {\n      summary: 'Selected material was not found. Send /quiz again and choose an available number.'\n    }\n  }];\n}\n\nreturn [{\n  json: {\n    summary: selected.json.summary\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        720,
+        544
+      ],
+      "id": "e738ea52-830f-4b68-9240-d26f1f8478a2",
+      "name": "Code in JavaScript2"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are an Examiner AI.\n\nGenerate exactly 5 multiple choice quiz questions based on this learning material.\n\nFor each question include:\nQuestion:\nA)\nB)\nC)\nD)\nCorrect answer:\nExplanation:\n\nRules:\n- Use only this selected material.\n- Return plain text only.\n- Do not use Markdown.\n- Do not use HTML.\n- Do not use asterisks, hashtags, underscores, angle brackets, or backticks.\n\nLearning material:\n{{ $json.summary }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        928,
+        544
+      ],
+      "id": "e8464402-837c-4f56-8d4b-b751161aef6a",
+      "name": "AI Agent1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        928,
+        736
+      ],
+      "id": "6e8b717e-636b-41f8-bbbc-ee10427d1e1b",
+      "name": "Google Gemini Chat Model1",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "7LDd7OaL0TQf4DWT",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1280,
+        544
+      ],
+      "id": "6694c190-b443-4966-a7a6-d1dbe0de4420",
+      "name": "Send a text message5",
+      "webhookId": "b5ddf21a-37aa-4e58-90c3-de1f6f87cb9f",
+      "credentials": {
+        "telegramApi": {
+          "id": "GgD4CGZjmNoLmEAX",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "wd7rTcul7Yue0Uga",
+          "mode": "list",
+          "cachedResultName": "learning_materials",
+          "cachedResultUrl": "/projects/A42IhJXoSlU2b5NM/datatables/wd7rTcul7Yue0Uga"
+        },
+        "matchType": "allConditions",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "userId",
+              "keyValue": "={{ $('Telegram Trigger').item.json.message.from.id }}"
+            }
+          ]
+        },
+        "limit": 5,
+        "orderBy": true,
+        "orderByColumn": "createdAtCustom"
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        496,
+        944
+      ],
+      "id": "0763d903-8089-4ee2-9495-5859410ac1e1",
+      "name": "Get row(s)4"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "wd7rTcul7Yue0Uga",
+          "mode": "list",
+          "cachedResultName": "learning_materials",
+          "cachedResultUrl": "/projects/A42IhJXoSlU2b5NM/datatables/wd7rTcul7Yue0Uga"
+        },
+        "matchType": "allConditions",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "userId",
+              "keyValue": "={{ $('Telegram Trigger').item.json.message.from.id }}"
+            }
+          ]
+        },
+        "limit": 5,
+        "orderBy": true,
+        "orderByColumn": "createdAtCustom"
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        480,
+        1280
+      ],
+      "id": "c0776862-1c6a-409f-8c69-f0d4dede80ee",
+      "name": "Get row(s)5"
+    },
+    {
+      "parameters": {
+        "jsCode": "const rows = $input.all();\nconst selected = rows[3];\n\nif (!selected) {\n  return [{\n    json: {\n      summary: 'Selected material was not found. Send /quiz again and choose an available number.'\n    }\n  }];\n}\n\nreturn [{\n  json: {\n    summary: selected.json.summary\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        704,
+        944
+      ],
+      "id": "7743d43e-6daf-4206-880a-3b40cfa05f4f",
+      "name": "Code in JavaScript3"
+    },
+    {
+      "parameters": {
+        "jsCode": "const rows = $input.all();\nconst selected = rows[4];\n\nif (!selected) {\n  return [{\n    json: {\n      summary: 'Selected material was not found. Send /quiz again and choose an available number.'\n    }\n  }];\n}\n\nreturn [{\n  json: {\n    summary: selected.json.summary\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        688,
+        1280
+      ],
+      "id": "54dff35f-b182-4d80-a134-26a8cd17ee0e",
+      "name": "Code in JavaScript4"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are an Examiner AI.\n\nGenerate exactly 5 multiple choice quiz questions based on this learning material.\n\nFor each question include:\nQuestion:\nA)\nB)\nC)\nD)\nCorrect answer:\nExplanation:\n\nRules:\n- Use only this selected material.\n- Return plain text only.\n- Do not use Markdown.\n- Do not use HTML.\n- Do not use asterisks, hashtags, underscores, angle brackets, or backticks.\n\nLearning material:\n{{ $json.summary }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        912,
+        944
+      ],
+      "id": "8b1426e7-8edb-4903-bb9d-d97460be8559",
+      "name": "AI Agent4"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are an Examiner AI.\n\nGenerate exactly 5 multiple choice quiz questions based on this learning material.\n\nFor each question include:\nQuestion:\nA)\nB)\nC)\nD)\nCorrect answer:\nExplanation:\n\nRules:\n- Use only this selected material.\n- Return plain text only.\n- Do not use Markdown.\n- Do not use HTML.\n- Do not use asterisks, hashtags, underscores, angle brackets, or backticks.\n\nLearning material:\n{{ $json.summary }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        912,
+        1280
+      ],
+      "id": "4309b5c3-3297-4016-8726-aaab2ac90c71",
+      "name": "AI Agent5"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        912,
+        1088
+      ],
+      "id": "9d772981-1950-4240-96e5-121342327ab4",
+      "name": "Google Gemini Chat Model4",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "7LDd7OaL0TQf4DWT",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        912,
+        1520
+      ],
+      "id": "f803a842-d626-4632-b3b1-18a791ce7974",
+      "name": "Google Gemini Chat Model5",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "7LDd7OaL0TQf4DWT",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1264,
+        944
+      ],
+      "id": "169f32e7-8a73-498f-927a-93110dc2482b",
+      "name": "Send a text message6",
+      "webhookId": "6c3d8cbd-8e6a-42be-a026-574a20809906",
+      "credentials": {
+        "telegramApi": {
+          "id": "GgD4CGZjmNoLmEAX",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1264,
+        1280
+      ],
+      "id": "7464eb7e-413c-4b42-bec4-905ee6f326da",
+      "name": "Send a text message7",
+      "webhookId": "bcb588e3-03e3-4ede-9e33-b3289a13a1df",
+      "credentials": {
+        "telegramApi": {
+          "id": "GgD4CGZjmNoLmEAX",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        784,
+        -400
+      ],
+      "id": "e13668fd-e9ec-4b3f-bfe8-d213f6681b23",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "7LDd7OaL0TQf4DWT",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const html = $json.data || '';\n\nconst cleaned = html\n  .replace(/<script[\\s\\S]*?<\\/script>/gi, ' ')\n  .replace(/<style[\\s\\S]*?<\\/style>/gi, ' ')\n  .replace(/<[^>]+>/g, ' ')\n  .replace(/\\s+/g, ' ')\n  .trim();\n\nconst url = $('Telegram Trigger').item.json.message.text.split(' ')[1];\n\nreturn [{\n  json: {\n    url,\n    content: cleaned.slice(0, 8000),\n    originalLength: cleaned.length\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        560,
+        -576
+      ],
+      "id": "1b924d56-f526-4066-adb4-9f6f27341e52",
+      "name": "Code in JavaScript5"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get row(s)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get row(s)1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get row(s)2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get row(s)3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get row(s)4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get row(s)5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Insert row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert row": {
+      "main": [
+        [
+          {
+            "node": "Send a text message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s)": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Send a text message2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s)1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent2": {
+      "main": [
+        [
+          {
+            "node": "Send a text message3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s)2": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent3",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent3": {
+      "main": [
+        [
+          {
+            "node": "Send a text message4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s)3": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript2": {
+      "main": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent1": {
+      "main": [
+        [
+          {
+            "node": "Send a text message5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s)4": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s)5": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript3": {
+      "main": [
+        [
+          {
+            "node": "AI Agent4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript4": {
+      "main": [
+        [
+          {
+            "node": "AI Agent5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model4": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent4",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model5": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent5",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent4": {
+      "main": [
+        [
+          {
+            "node": "Send a text message6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent5": {
+      "main": [
+        [
+          {
+            "node": "Send a text message7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript5": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "ab319328-dc16-4cd2-aa8a-094cd10c6323",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "18eea2b8dbf6df59592277661c6b20be1e167c939deb385d1073e7907246c215"
+  },
+  "id": "QmvpzJA6NCqQmMYD",
+  "tags": []
+}
